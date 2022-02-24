@@ -1,7 +1,7 @@
 # Basic Node Chat which actually works
 
 #### Setup Instructions
-- clone the repo `git clone https://github.com/hereshem/Node-Chat` or download zip
+- clone the repo `git clone https://github.com/hereshem/Node-Chat` or download zip.
 - run `node server.js`
 - goto browser and type `http://localhost:3000`
 
