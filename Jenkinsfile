@@ -55,6 +55,9 @@ pipeline {
         success {
             slackSend channel: "#general", message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER}"
         }
+        failure {
+        slackSend failOnError:true message:"Build failed  - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
+        }
     }
 
 
