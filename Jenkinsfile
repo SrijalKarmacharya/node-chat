@@ -52,7 +52,9 @@ pipeline {
     }
     post {
         success {
+          script {
             slackSend channel: "#general", message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER}"            
+          }
         }
     }
   }
