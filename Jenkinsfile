@@ -39,7 +39,7 @@ pipeline {
       steps {
        
           withCredentials([
-        file(credentialsId: "kubeconfig", variable: 'KUBECRED')
+        file(credentialsId: "kubeconfig", variable: 'KUBECRED1')
         
     ]) {
         sh """
