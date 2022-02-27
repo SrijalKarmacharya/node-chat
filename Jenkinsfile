@@ -39,7 +39,7 @@ pipeline {
       steps {
        
           withCredentials([
-        file(credentialsId: "kubeconfig", variable: 'KUBECRED1')
+        file(credentialsId: "kubeconfig", variable: 'KUBECRED')
         
     ]) {
         sh """
@@ -53,7 +53,7 @@ pipeline {
   }
     post {
         success {
-            slackSend channel: "#general", message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER}"
+            slackSend channel: "#general", message: "Build Succeded: ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
         }
         failure {
             slackSend failOnError:true, message:"Build failed  - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
