@@ -8,7 +8,6 @@ pipeline {
   agent any
 
   stages {
-
     stage('Checkout Source') {
       steps {
         git 'https://github.com/SrijalKarmacharya/node-chat.git'
@@ -53,13 +52,10 @@ pipeline {
     }
     post {
         success {
-            slackSend "Build deployed successfully - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
+            slackSend channel: "#general", message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER}"            
+            #slackSend "Build deployed successfully - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
         }
     }
-
-
-
-
   }
 
 }
