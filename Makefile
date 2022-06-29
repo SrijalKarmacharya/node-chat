@@ -33,6 +33,7 @@ test:
 build:
 	@echo "Building process has been started"
 	sleep 5
+	docker build -t nodeimage .
 	@echo "Completed"
 
 push:
