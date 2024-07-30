@@ -34,6 +34,10 @@ jobs:
         sudo apt-get update
         sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 
+    - name: Debug KUBECONFIG_BASE64
+      run: echo $KUBECONFIG_BASE64 | head -n 10
+
+
     - name: Decode and configure kubeconfig
       env:
         KUBECONFIG_BASE64: ${{ secrets.KUBECONFIG_BASE64 }}
