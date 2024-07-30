@@ -29,13 +29,16 @@ jobs:
 
     - name: Set up kubectl
       run: |
-        sudo snap install kubectl --classic
+        curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+        echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+        sudo apt-get update
+        sudo apt-get install -y kubectl
 
     - name: Decode and configure kubeconfig
       env:
         KUBECONFIG_BASE64: ${{ secrets.KUBECONFIG_BASE64 }}
       run: |
-        echo $KUBECONFIG_BASE64 | base64 --decode > ~/.kube/config
+        echo $KUBECONFIG_BASE64 | base64 --decode > $HOME/.kube/config
 
     - name: Deploy to Kubernetes
       run: |
