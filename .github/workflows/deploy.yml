@@ -57,6 +57,7 @@ jobs:
         cat $HOME/.kube/config
         export KUBECONFIG=$HOME/.kube/config
         chmod 600 ~/.kube/config
+        kubectl cluster-info
    
     - name: Deploy to Kubernetes
       run: |
