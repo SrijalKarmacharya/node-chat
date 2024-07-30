@@ -56,8 +56,7 @@ jobs:
       run: |
         cat $HOME/.kube/config
         export KUBECONFIG=$HOME/.kube/config
-        kubectl cluster-info
-
+   
     - name: Deploy to Kubernetes
       run: |
         export KUBECONFIG=$HOME/.kube/config
