@@ -3,16 +3,16 @@ kind: Deployment
 metadata:
   name: nodechat-deployment
   labels:
-    app: nodechat
+    app: my-node-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nodechat
+      app: my-node-app
   template:
     metadata:
       labels:
-        app: nodechat
+        app: my-node-app
     spec:
       containers:
       - name: nodechat
