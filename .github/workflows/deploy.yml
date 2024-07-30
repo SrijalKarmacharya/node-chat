@@ -58,5 +58,6 @@ jobs:
 
     - name: Deploy to Kubernetes
       run: |
-        kubectl --kubeconfig=$HOME/.kube/config apply -f deployment.yaml --validate=false
-        kubectl --kubeconfig=$HOME/.kube/config apply -f service.yaml --validate=false
+        export KUBECONFIG=$HOME/.kube/config
+        kubectl -f deployment.yaml --validate=false
+        kubectl -f service.yaml --validate=false
