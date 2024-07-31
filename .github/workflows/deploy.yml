@@ -62,9 +62,7 @@ jobs:
    
     - name: Deploy to Kubernetes
       run: |
-        # export KUBECONFIG=$HOME/.kube/config
         COMMIT_ID=$(echo "${{ github.sha }}" | cut -c1-7)
         kubectl set image deployment/nodechat-deployment nodechat=${{ secrets.DOCKER_USERNAME }}/nodechat:${COMMIT_ID}
         kubectl rollout status deployment/nodechat-deployment
-        # kubectl apply -f deployment.yaml --validate=false
         kubectl apply -f service.yaml
