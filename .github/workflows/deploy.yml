@@ -35,7 +35,7 @@ jobs:
 
     - name: Build and push Docker image
       run: |
-        COMMIT_ID=${{ github.sha }}
+        COMMIT_ID=$(echo "${{ github.sha }}" | cut -c1-7)
         docker build -t srijaldocker/nodechat:${COMMIT_ID} .
         docker push ${{ secrets.DOCKER_USERNAME }}/nodechat:${COMMIT_ID}
 
